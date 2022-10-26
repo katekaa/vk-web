@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sticky Footer Navbar Template · Bootstrap v5.2</title>
+
+
+
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">AskMe</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+                    </form>
+                </div>
+                <div class="user-block">
+                    <div class="row justify-content-end">
+                        <div class="col-2 mx-auto my-auto"></div>
+                        <div class="col-8 text-right my-auto">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <a href="./signup.html" class="btn btn-outline-primary">Register</a>
+                                <a href="./login.html" class="btn btn-outline-primary">Log in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main class="flex-shrink-0">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-9">
+                    <h1>Registration</h1>
+                    <form>
+                        <div class="row mb-3">
+                            <label for="inputLogin3" class="col-sm-2 col-form-label">Login</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" value="user_4" id="inputLogin3">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" style="border: 1px solid red;" class="form-control" value="user_1@mail.ru" id="inputEmail3">
+                                
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputNickName3" class="col-sm-2 col-form-label">NickName</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" value="User 4" id="inputNickName3">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPasswordAgain4" class="col-sm-2 col-form-label">Repeat Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPasswordAgain4">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputAvatar3" class="col-sm-2 col-form-label">Upload avatar</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="file" id="inputAvatar3">
+                                <div class="avatar-default">
+                                    <img src="../static/img/no-user.jpg" alt="" />
+                                </div>
+                                <div class="error-text">
+                                    Sorry, this email already registred
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputLogin3" class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary disabled">Register</button>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="col-3 text-center">
+                    <div class="popular-tags">
+                        <p>Popular Tags</p>
+                        <a href="">black-jack</a>
+                        <a href="">bender</a>
+                        <a href="">python</a>
+                        <a href="">MySQL</a>
+                        <a href="">Web</a>
+                        <a href="">Frameworks</a>
+                        <a href="">Monkey coding</a>
+                        <a href="">Windows</a>
+                    </div>
+                    <div class="best-members">
+                        <p>Best Members</p>
+                        <div class="list-group">
+                            <a href="">User 1</a>
+                            <a href="">User 2</a>
+                            <a href="">User 3</a>
+                            <a href="">User 4</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

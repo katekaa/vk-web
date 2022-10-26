@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sticky Footer Navbar Template · Bootstrap v5.2</title>
+
+
+
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Favicons -->
+
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">AskMe</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+                    </form>
+                    <a href="../templates/ask.html" class="btn btn-outline-success" role="button"
+                        data-bs-toggle="button">Ask</a>
+                    <!-- <button class="btn btn-outline-success">Ask</button> -->
+                </div>
+                <div class="user-block">
+                    <div class="row justify-content-end">
+                        <div class="col-2 mx-auto my-auto">
+                            <div class="current-user-avatar">
+                                <img src="../static/img/user1.jpg" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-8 text-right my-auto">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <a href="./settings.html" class="btn btn-outline-primary">Settings</a>
+                                <a href="#" class="btn btn-outline-primary">Log out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main class="flex-shrink-0">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-9  ">
+                    <div class="question border-bottom" style="border: none;">
+                        <div class="row ">
+                            <div class="col-2">
+                                <div class="avatar">
+                                    <img src="../static/img/user1.jpg" alt="" />
+                                </div>
+                                <div class="rating">
+                                    <p class="counter">4</p>
+                                    <div class="btn-group-vertical">
+                                        <button type="button" class="btn btn-primary btn-sm">Like</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-10" style="position: relative;">
+
+                                <h2 class="question-title" >Question 1</h2>
+                                <div class="full-text">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto qui perferendis
+                                    deleniti adipisci dolores doloribus, cumque exercitationem sint. Sit quod blanditiis
+                                    nulla, hic aperiam delectus explicabo dolorem itaque inventore optio laboriosam
+                                    pariatur quia. Eius, alias. Corporis quam consequatur sunt vel eum facilis quibusdam
+                                    harum iste inventore eaque accusamus dignissimos autem doloremque asperiores veniam
+                                    beatae esse perferendis voluptatem itaque dolores, veritatis ex vitae! Ab voluptatum
+                                    nulla iste aliquam vel fugiat impedit, modi voluptatem blanditiis? Delectus saepe
+                                    cum molestiae fuga sed provident, minus consequatur officia magni similique itaque
+                                    omnis possimus blanditiis. Optio culpa cupiditate incidunt nostrum quisquam
+                                    excepturi accusamus sapiente, tempora ipsa natus dolorem asperiores? Quasi mollitia
+                                    qui fugiat? Reiciendis, aliquam consequatur! Sit perferendis possimus accusantium
+                                    voluptatibus soluta officia nihil. Doloribus libero necessitatibus autem? Natus
+                                    dolorem inventore ut cumque facere autem velit fugit optio tempore? Amet facere quae
+                                    distinctio, ipsum vitae impedit, in, est explicabo rem sunt blanditiis unde quasi
+                                    iure. A deserunt ipsam illo quam dolorum excepturi placeat eligendi harum repellat.
+                                    Corporis, culpa cumque. Corporis libero fugiat dolor impedit delectus perspiciatis
+                                    tempora quae possimus minus ea aliquam vel porro error quisquam eaque similique ipsa
+                                    quam, necessitatibus voluptatem, consequatur qui ut eveniet officiis illo?
+                                    Accusamus, nisi nihil numquam voluptate modi saepe inventore.
+                                </div>
+                                <div class="under-question">
+                                    <div class="tags">Tags:
+                                        <a href="">black-jack</a>
+                                        <a href="">bender</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <textarea class="form-control" id="inputAnswer" style="margin-bottom: 10px;"
+                        placeholder="Type your answer here"></textarea>
+                    <button type="submit" style="margin-bottom: 20px;" class="btn btn-primary">Answer</button>
+
+                    <div class="question">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="avatar">
+                                    <img src="../static/img/user2.jpg" alt="" />
+                                </div>
+                                <div class="rating">
+                                    <p class="counter">8</p>
+                                    <div class="btn-group-vertical">
+                                        <button type="button" class="btn btn-primary btn-sm">Like</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-10" style="position: relative;">
+                                <div class="full-text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eveniet.
+                                    Delectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                                    ratione temporibus exercitationem cupiditate fuga, sint obcaecati quas eligendi
+                                    sequi, beatae mollitia magnam, deserunt doloribus dignissimos! Possimus totam
+                                    obcaecati officia libero tenetur aliquam mollitia alias vitae, porro autem?
+                                </div>
+                                <div class="under-answer">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Correct
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="avatar">
+                                    <img src="../static/img/user2.jpg" alt="" />
+                                </div>
+                                <div class="rating">
+                                    <p class="counter">1</p>
+                                    <div class="btn-group-vertical">
+                                        <button type="button" class="btn btn-primary btn-sm">Like</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-10" style="position: relative;">
+                                <div class="full-text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eveniet.
+                                    Delectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                                    ratione temporibus exercitationem cupiditate fuga, sint obcaecati quas eligendi
+                                    sequi, beatae mollitia magnam, deserunt doloribus dignissimos! Possimus totam
+                                    obcaecati officia libero tenetur aliquam mollitia alias vitae, porro autem?
+                                </div>
+                                <div class="under-answer">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Correct
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="avatar">
+                                    <img src="../static/img/user2.jpg" alt="" />
+                                </div>
+                                <div class="rating">
+                                    <p class="counter">4</p>
+                                    <div class="btn-group-vertical">
+                                        <button type="button" class="btn btn-primary btn-sm">Like</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-10" style="position: relative;">
+                                <div class="full-text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eveniet.
+                                    Delectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                                    ratione temporibus exercitationem cupiditate fuga, sint obcaecati quas eligendi
+                                    sequi, beatae mollitia magnam, deserunt doloribus dignissimos! Possimus totam
+                                    obcaecati officia libero tenetur aliquam mollitia alias vitae, porro autem?
+                                </div>
+                                <div class="under-answer">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Correct
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-3 text-center">
+                    <div class="popular-tags">
+                        <p>Popular Tags</p>
+                        <a href="">black-jack</a>
+                        <a href="./tag.html">bender</a>
+                        <a href="">python</a>
+                        <a href="">MySQL</a>
+                        <a href="">Web</a>
+                        <a href="">Frameworks</a>
+                        <a href="">Monkey coding</a>
+                        <a href="">Windows</a>
+                    </div>
+                    <div class="best-members">
+                        <p>Best Members</p>
+                        <div class="list-group">
+                            <a href="">User 1</a>
+                            <a href="">User 2</a>
+                            <a href="">User 3</a>
+                            <a href="">User 4</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
