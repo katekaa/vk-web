@@ -62,25 +62,30 @@
                         <div class="row mb-3">
                             <label for="inputTitle3" class="col-sm-1 col-form-label">Title</label>
                             <div class="col-sm-11">
-                                <input type="text" class="form-control" id="inputTitle3">
+                                <input type="text" class="form-control" value="Am I a robot?" id="inputTitle3">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="inputQuestion3" class="col-sm-1 col-form-label">Text</label>
                             <div class="col-sm-11">
-                                <textarea class="form-control" id="inputQuestion3"> </textarea>
+                                <textarea class="form-control" style="border: 1px solid red;"
+                                    id="inputQuestion3"> </textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="inputTags3" class="col-sm-1 col-form-label">Tags</label>
                             <div class="col-sm-11">
-                                <input type="text" class="form-control" id="inputTags3">
+                                <input type="text" class="form-control" id="inputTags3" value="captcha">
+                                <div class="error-text">
+                                    Please fill in the field
+                                </div>
                             </div>
+
                         </div>
                         <div class="row mb-3">
                             <label for="inputLogin3" class="col-sm-1 col-form-label"></label>
                             <div class="col-sm-11">
-                                <button type="submit" class="btn btn-primary">Ask</button>
+                                <button type="submit" class="btn btn-primary disabled">Ask</button>
                             </div>
                         </div>
                     </form>
@@ -119,4 +124,5 @@
 
 
 </body>
+
 </html>
