@@ -42,6 +42,11 @@
     height: 76px;
 }
 
+.user-name {
+    width: 76px;
+    text-align: center;
+}
+
 .avatar-default {
     margin-top: 16px;
 }
