@@ -1,0 +1,52 @@
+
+{% load static %}
+
+<div class="question">
+    <div class="row">
+        <div class="col-2">
+            <div class="avatar">
+                <img src="{% static 'img/user1.jpg' %}" alt="" />
+            </div>
+            <div class="user-name">User 1</div>
+            <div class="rating">
+                <p class="counter">4</p>
+                <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-primary btn-sm">Like</button>
+                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-10" style="position: relative;">
+            <a class="question-title" href="{% url 'question' question_id=1 %}">Question 1</a>
+            <div class="qustion-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, similique, iure,
+                odio quae harum consequatur deserunt praesentium temporibus ullam porro voluptatibus
+                molestiae doloribus. Accusamus pariatur ducimus sit aut laboriosam quaerat
+                architecto saepe dolore illo harum rem facilis sint ipsa consequuntur, porro ex
+                alias dolor ipsum, nobis et maiores id dolorem! Perferendis officiis vitae
+                necessitatibus explicabo aliquam consequatur laudantium aut. Consequuntur, quo
+                veniam? Ex, id, natus praesentium corporis, accusamus deleniti amet illum ut quia
+                eveniet nulla quibusdam cumque molestias. Provident accusantium soluta iure
+                asperiores quam eligendi incidunt numquam quidem rem vero repellat perspiciatis
+                consequuntur, facilis alias, eos autem laborum deserunt temporibus? Rerum nisi earum
+                officia. Eum minus sapiente quis corporis possimus officia sunt maxime commodi ipsum
+                explicabo exercitationem excepturi obcaecati molestiae soluta quasi ab, adipisci
+                aliquam quo laudantium laborum maiores vitae earum eaque. Consequatur error fugiat a
+                possimus nobis culpa perferendis ipsa, porro veniam nisi explicabo et odit ratione
+                deserunt accusamus quaerat minima quos quidem deleniti quo, laboriosam distinctio.
+                Impedit explicabo architecto tempore reiciendis dolorem est vero excepturi quos.
+                Eius, nam! Quidem quaerat consequuntur doloremque animi culpa tenetur aliquam
+                delectus possimus aperiam corrupti error debitis ut odio voluptatibus accusantium a
+                quisquam minima placeat quibusdam iste, optio explicabo! Laborum esse dolor facere.
+            </div>
+            <div class="under-question">
+                <a href="" style="margin-right:20px ;">answer(3)</a>
+                <div class="tags">Tags:
+                    <a href="">black-jack</a>
+                    <a href="">bender</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
