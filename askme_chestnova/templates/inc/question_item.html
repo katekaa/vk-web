@@ -17,8 +17,9 @@
             </div>
         </div>
         <div class="col-10" style="position: relative;">
-            <a class="question-title" href="{% url 'question' question_id=1 %}">Question 1</a>
+            <a class="question-title" href="{% url 'question' question_id=question.id %}">{{question.title}}</a>
             <div class="qustion-text">
+                {{question.text}}
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, similique, iure,
                 odio quae harum consequatur deserunt praesentium temporibus ullam porro voluptatibus
                 molestiae doloribus. Accusamus pariatur ducimus sit aut laboriosam quaerat
@@ -40,10 +41,11 @@
                 quisquam minima placeat quibusdam iste, optio explicabo! Laborum esse dolor facere.
             </div>
             <div class="under-question">
-                <a href="" style="margin-right:20px ;">answer(3)</a>
+                <a href="" style="margin-right:20px ;">answer({{question.answers_number}})</a>
                 <div class="tags">Tags:
-                    <a href="">black-jack</a>
-                    <a href="">bender</a>
+                    {% for tag in question.tags %}
+                    <a href="#">{{tag}}</a>
+                    {% endfor %}
                 </div>
             </div>
         </div>
