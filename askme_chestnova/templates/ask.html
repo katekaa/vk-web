@@ -24,12 +24,12 @@
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="collapse navbar-collapse" id="navbarCollapse" style="justify-content: space-between;">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 
                     </form>
-                    <button class="btn btn-outline-success">Ask</button>
+                    <a href="../templates/ask.html" class="btn btn-success">Ask</a>
                 </div>
                 <div class="user-block">
                     <div class="row justify-content-end">
@@ -38,7 +38,7 @@
                                 <img src="../static/img/user1.jpg" alt="" />
                             </div>
                         </div>
-                        <div class="col-8 text-right my-auto">
+                        <div class="col-9 text-right my-auto">
                             <div class="btn-group" role="group" aria-label="Basic outlined example">
                                 <a href="./settings.html" class="btn btn-outline-primary">Settings</a>
                                 <a href="#" class="btn btn-outline-primary">Log out</a>
@@ -60,6 +60,11 @@
                     <h1>New Question</h1>
                     <form>
                         <div class="row mb-3">
+                            <div class="error-text">
+                                Please fill in the field
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label for="inputTitle3" class="col-sm-1 col-form-label">Title</label>
                             <div class="col-sm-11">
                                 <input type="text" class="form-control" value="Am I a robot?" id="inputTitle3">
@@ -68,17 +73,13 @@
                         <div class="row mb-3">
                             <label for="inputQuestion3" class="col-sm-1 col-form-label">Text</label>
                             <div class="col-sm-11">
-                                <textarea class="form-control" style="border: 1px solid red;"
-                                    id="inputQuestion3"> </textarea>
+                                <textarea class="form-control" id="inputQuestion3"> </textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="inputTags3" class="col-sm-1 col-form-label">Tags</label>
                             <div class="col-sm-11">
                                 <input type="text" class="form-control" id="inputTags3" value="captcha">
-                                <div class="error-text">
-                                    Please fill in the field
-                                </div>
                             </div>
 
                         </div>
