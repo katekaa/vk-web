@@ -28,23 +28,40 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 
                     </form>
-                    <a href="../templates/ask.html" class="btn btn-success">Ask</a>
+                    <a href="{% url 'ask' %}" class="btn btn-success">Ask</a>
                 </div>
+
+                {% if is_auth %}
                 <div class="user-block">
                     <div class="row justify-content-end">
                         <div class="col-2">
                             <div class="current-user-avatar">
-                                <img src="../static/img/user1.jpg" alt="" />
+                                <img src="{% static 'img/user0.jpg' %}" alt="" />
                             </div>
                         </div>
                         <div class="col-9 text-right my-auto">
                             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                <a href="./settings.html" class="btn btn-outline-primary">Settings</a>
+                                <a href="{% url 'settings' %}" class="btn btn-outline-primary">Settings</a>
                                 <a href="#" class="btn btn-outline-primary">Log out</a>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {% else %}
+
+                <div class="user-block">
+                    <div class="row justify-content-end">
+                        <div class="col-10 text-right my-auto">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <a href="{% url 'signup' %}" class="btn btn-outline-primary">Register</a>
+                                <a href="{% url 'login' %}" class="btn btn-outline-primary">Log in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               {% endif %}
 
             </div>
         </nav>
@@ -68,14 +85,14 @@
                 <div class="col-3 text-center">
                     <div class="popular-tags">
                         <p>Popular Tags</p>
-                        <a href="">black-jack</a>
-                        <a href="./tag.html">bender</a>
-                        <a href="">python</a>
-                        <a href="">MySQL</a>
-                        <a href="">Web</a>
-                        <a href="">Frameworks</a>
-                        <a href="">Monkey coding</a>
-                        <a href="">Windows</a>
+                        <a href="{% url 'tag' tag='black-jack' %}">black-jack</a>
+                        <a href="{% url 'tag' tag='bender' %}">bender</a>
+                        <a href="{% url 'tag' tag='python' %}">python</a>
+                        <a href="{% url 'tag' tag='MySQL' %}">MySQL</a>
+                        <a href="{% url 'tag' tag='Web' %}">Web</a>
+                        <a href="{% url 'tag' tag='Frameworks' %}">Frameworks</a>
+                        <a href="{% url 'tag' tag='Monkey coding' %}">Monkey coding</a>
+                        <a href="{% url 'tag' tag='Windows' %}">Windows</a>
                     </div>
                     <div class="best-members">
                         <p>Best Members</p>

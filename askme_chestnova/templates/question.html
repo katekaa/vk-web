@@ -1,171 +1,62 @@
 {% extends "inc/base.html" %}
 
-{% load static %} 
+{% load static %}
 
 {% block content %}
 
+<div class="post-item border-bottom" style="border: none; padding: 10px;">
+    <div class="row ">
+        <div class="col-2">
+            <div class="big-avatar">
+                <img src="{% static question.user.photo %}" alt="" />
+            </div>
+            <div class="user-name">{{question.user.name}}</div>
+            <div class="rating">
+                <p class="counter">{{question.rating}}</p>
+                <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-primary btn-sm">Like</button>
+                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-10" style="position: relative;">
 
-                    <div class="question border-bottom" style="border: none;">
-                        <div class="row ">
-                            <div class="col-2">
-                                <div class="avatar">
-                                    <img src="../static/img/user1.jpg" alt="" />
-                                </div>
-                                <div class="user-name">User 1</div>
-                                <div class="rating">
-                                    <p class="counter">4</p>
-                                    <div class="btn-group-vertical">
-                                        <button type="button" class="btn btn-primary btn-sm">Like</button>
-                                        <button type="button" class="btn btn-danger btn-sm">Dislike</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-10" style="position: relative;">
+            <h2 class="question-title">{{question.title}}</h2>
+            <div class="full-text">
+                {{question.text}} Delectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
+                ratione temporibus
+            </div>
+            <div class="under-question">
+                <div class="tags">Tags:
+                    {% for tag in question.tags %}
+                    <a href="{% url 'tag' tag=tag %}">{{tag}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                                <h2 class="question-title">Question 1</h2>
-                                <div class="full-text">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto qui perferendis
-                                    deleniti adipisci dolores doloribus, cumque exercitationem sint. Sit quod blanditiis
-                                    nulla, hic aperiam delectus explicabo dolorem itaque inventore optio laboriosam
-                                    pariatur quia. Eius, alias. Corporis quam consequatur sunt vel eum facilis quibusdam
-                                    harum iste inventore eaque accusamus dignissimos autem doloremque asperiores veniam
-                                    beatae esse perferendis voluptatem itaque dolores, veritatis ex vitae! Ab voluptatum
-                                    nulla iste aliquam vel fugiat impedit, modi voluptatem blanditiis? Delectus saepe
-                                    cum molestiae fuga sed provident, minus consequatur officia magni similique itaque
-                                    omnis possimus blanditiis. Optio culpa cupiditate incidunt nostrum quisquam
-                                    excepturi accusamus sapiente, tempora ipsa natus dolorem asperiores? Quasi mollitia
-                                    qui fugiat? Reiciendis, aliquam consequatur! Sit perferendis possimus accusantium
-                                    voluptatibus soluta officia nihil. Doloribus libero necessitatibus autem? Natus
-                                    dolorem inventore ut cumque facere autem velit fugit optio tempore? Amet facere quae
-                                    distinctio, ipsum vitae impedit, in, est explicabo rem sunt blanditiis unde quasi
-                                    iure. A deserunt ipsam illo quam dolorum excepturi placeat eligendi harum repellat.
-                                    Corporis, culpa cumque. Corporis libero fugiat dolor impedit delectus perspiciatis
-                                    tempora quae possimus minus ea aliquam vel porro error quisquam eaque similique ipsa
-                                    quam, necessitatibus voluptatem, consequatur qui ut eveniet officiis illo?
-                                    Accusamus, nisi nihil numquam voluptate modi saepe inventore.
-                                </div>
-                                <div class="under-question">
-                                    <div class="tags">Tags:
-                                        <a href="">black-jack</a>
-                                        <a href="">bender</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<textarea class="form-control" id="inputAnswer" style="margin-bottom: 10px;"
+    placeholder="Type your answer here"></textarea>
+<button type="submit" style="margin-bottom: 20px;" class="btn btn-primary">Answer</button>
 
-                    <textarea class="form-control" id="inputAnswer" style="margin-bottom: 10px;"
-                        placeholder="Type your answer here"></textarea>
-                    <button type="submit" style="margin-bottom: 20px;" class="btn btn-primary">Answer</button>
+{% for item in page_obj %}
+{%include 'inc/answer_item.html' %}
+{% endfor %}
 
-                    <div class="question">
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="avatar">
-                                    <img src="../static/img/user2.jpg" alt="" />
-                                </div>
-                                <div class="user-name">User 2</div>
-                                <div class="rating">
-                                    <p class="counter">8</p>
-                                    <div class="btn-group-vertical">
-                                        <button type="button" class="btn btn-primary btn-sm">Like</button>
-                                        <button type="button" class="btn btn-danger btn-sm">Dislike</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-10" style="position: relative;">
-                                <div class="full-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eveniet.
-                                    Delectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                                    ratione temporibus exercitationem cupiditate fuga, sint obcaecati quas eligendi
-                                    sequi, beatae mollitia magnam, deserunt doloribus dignissimos! Possimus totam
-                                    obcaecati officia libero tenetur aliquam mollitia alias vitae, porro autem?
-                                </div>
-                                <div class="under-answer">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Correct
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="question">
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="avatar">
-                                    <img src="../static/img/user2.jpg" alt="" />
-                                </div>
-                                <div class="user-name">User 2</div>
-                                <div class="rating">
-                                    <p class="counter">1</p>
-                                    <div class="btn-group-vertical">
-                                        <button type="button" class="btn btn-primary btn-sm">Like</button>
-                                        <button type="button" class="btn btn-danger btn-sm">Dislike</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-10" style="position: relative;">
-                                <div class="full-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eveniet.
-                                    Delectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                                    ratione temporibus exercitationem cupiditate fuga, sint obcaecati quas eligendi
-                                    sequi, beatae mollitia magnam, deserunt doloribus dignissimos! Possimus totam
-                                    obcaecati officia libero tenetur aliquam mollitia alias vitae, porro autem?
-                                </div>
-                                <div class="under-answer">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                                        <label class="form-check-label" for="defaultCheck2">
-                                            Correct
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="question">
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="avatar">
-                                    <img src="../static/img/user3.jpg" alt="" />
-                                </div>
-                                <div class="user-name">User 3</div>
-                                <div class="rating">
-                                    <p class="counter">4</p>
-                                    <div class="btn-group-vertical">
-                                        <button type="button" class="btn btn-primary btn-sm">Like</button>
-                                        <button type="button" class="btn btn-danger btn-sm">Dislike</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-10" style="position: relative;">
-                                <div class="full-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eveniet.
-                                    Delectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                                    ratione temporibus exercitationem cupiditate fuga, sint obcaecati quas eligendi
-                                    sequi, beatae mollitia magnam, deserunt doloribus dignissimos! Possimus totam
-                                    obcaecati officia libero tenetur aliquam mollitia alias vitae, porro autem?
-                                </div>
-                                <div class="under-answer">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-                                        <label class="form-check-label" for="defaultCheck3">
-                                            Correct
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 {% include 'inc/paginator.html' %}
 
 {% endblock %}
-
-               
-               
-

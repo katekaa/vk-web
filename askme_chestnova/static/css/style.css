@@ -1,15 +1,15 @@
 .container {
-    padding: 60px 15px 0;
+    padding: 76px 15px 0;
 }
 
-.question {
+.post-item {
     margin-bottom: 20px;
     border: 2px solid gray;
     border-radius: 6px;
     padding: 20px;
 }
 
-.question-title {
+.post-item-title {
     text-decoration: none;
     font-size: 2rem;
     font-weight: 500;
@@ -17,8 +17,8 @@
     color: black;
 }
 
-.qustion-text {
-    margin-bottom: 30px;
+.post-item-text {
+    margin-bottom: 50px;
     overflow: hidden;
     max-height: 100px;
 }
@@ -27,7 +27,7 @@
     margin-bottom: 30px;
 }
 
-.avatar, .avatar-setting {    
+.avatar, .avatar-setting, .big-avatar {    
     border-radius: 50%;
     overflow: hidden;
 }
@@ -40,6 +40,11 @@
 .avatar {
     width: 76px;
     height: 76px;
+}
+
+.big-avatar {
+    width: 90px;
+    height: 90px;
 }
 
 .user-name {
@@ -74,9 +79,7 @@ img {
 .rating button {
     font-size: 12px;
     padding: 6px;    
-    margin-bottom: 5px;
-    
-    
+    margin-bottom: 5px;     
 }
 
 .counter {  
@@ -125,14 +128,10 @@ img {
     color: red; 
 }
 
-h1 {
-    margin-top: 6px;
-    margin-bottom: 20px;
-}
-
 .title {
     display: inline-flex;
     align-items: center;
+    margin-bottom: 18px;
 }
 
 .title a {

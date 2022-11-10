@@ -1,0 +1,8 @@
+<div class="under-question">
+    <a href="" style="margin-right:20px ;">answer({{item.answers_number}})</a>
+    <div class="tags">Tags:
+        {% for tag in item.tags %}
+        <a href="{% url 'tag' tag=tag %}">{{tag}}</a>
+        {% endfor %}
+    </div>
+</div>
