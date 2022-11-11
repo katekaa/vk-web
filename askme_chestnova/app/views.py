@@ -27,7 +27,7 @@ def question(request, question_id: int ):
     question_item = models.QUESTIONS[question_id]
     context = {'question': question_item,
     'page_obj': objects,
-    'is_auth': False }
+    'is_auth': True }
     return render(request, 'question.html', context=context)
 
 def ask(request):
