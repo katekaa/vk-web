@@ -11,17 +11,11 @@
                 <img src="{% static question.user.photo %}" alt="" />
             </div>
             <div class="user-name">{{question.user.name}}</div>
-            <div class="rating">
-                <p class="counter">{{question.rating}}</p>
-                <div class="btn-group-vertical">
-                    <button type="button" class="btn btn-primary btn-sm">Like</button>
-                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
-                </div>
-            </div>
+            {%include 'inc/rating.html'%}
         </div>
         <div class="col-10" style="position: relative;">
 
-            <h2 class="question-title">{{question.title}}</h2>
+            <h1 class="question-title">{{question.title}}</h1>
             <div class="full-text">
                 {{question.text}} Delectus quos modi repellendus magni autem ut error maxime eos labore eveniet
                 ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
@@ -38,11 +32,7 @@
                 ratione temporibus
             </div>
             <div class="under-question">
-                <div class="tags">Tags:
-                    {% for tag in question.tags %}
-                    <a href="{% url 'tag' tag=tag %}">{{tag}}</a>
-                    {% endfor %}
-                </div>
+                {% include 'inc/tags.html' %}
             </div>
         </div>
     </div>

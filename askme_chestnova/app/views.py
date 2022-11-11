@@ -5,7 +5,10 @@ from . import models
 def paginate(obj_list, request):
     paginator = Paginator(obj_list, 5)
     page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    try:
+        page_obj = paginator.get_page(page_number)
+    except:
+        page_obj = paginator.page(paginator.num_pages)
     return page_obj
 
 def index(request):

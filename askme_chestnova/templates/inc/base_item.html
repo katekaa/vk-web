@@ -7,13 +7,7 @@
                 <img src="{% static item.user.photo %}" alt="" />
             </div>
             <div class="user-name">{{item.user.name}}</div>
-            <div class="rating">
-                <p class="counter">{{item.rating}}</p>
-                <div class="btn-group-vertical">
-                    <button type="button" class="btn btn-primary btn-sm">Like</button>
-                    <button type="button" class="btn btn-danger btn-sm">Dislike</button>
-                </div>
-            </div>
+            {% include '../inc/rating.html' %}
         </div>
         <div class="col-10" style="position: relative;">
 
