@@ -1,5 +1,5 @@
 <div class="tags">Tags:
-    {% for tag in question.tags %}
-    <a href="{% url 'tag' tag=tag %}">{{tag}}</a>
+    {% for tag in item.tags.all %}
+    <a href="{% url 'tag' tag_name=tag %}">{{tag}}</a>&nbsp
     {% endfor %}
 </div>

@@ -75,24 +75,16 @@
             <div class="row">
                 <div class="col-9">
                     
-
-                    
                     {% block content%}
                     {% endblock %}
-
 
                 </div>
                 <div class="col-3 text-center">
                     <div class="popular-tags">
                         <p>Popular Tags</p>
-                        <a href="{% url 'tag' tag='black-jack' %}">black-jack</a>
-                        <a href="{% url 'tag' tag='bender' %}">bender</a>
-                        <a href="{% url 'tag' tag='python' %}">python</a>
-                        <a href="{% url 'tag' tag='MySQL' %}">MySQL</a>
-                        <a href="{% url 'tag' tag='Web' %}">Web</a>
-                        <a href="{% url 'tag' tag='Frameworks' %}">Frameworks</a>
-                        <a href="{% url 'tag' tag='Monkey coding' %}">Monkey coding</a>
-                        <a href="{% url 'tag' tag='Windows' %}">Windows</a>
+                        {% for tag in tags.all %}
+                        <a href="{% url 'tag' tag %}">{{ tag }}</a>
+                        {% endfor %}
                     </div>
                     <div class="best-members">
                         <p>Best Members</p>
@@ -107,8 +99,6 @@
             </div>
         </div>
     </main>
-
-
 
     <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

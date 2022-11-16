@@ -1,41 +1,90 @@
 from django.db import models
+from datetime import date
+from django.db.models import Count
+from django.contrib.auth.models import User
 
-USERS = [
-    {
-        'id': user_id,
-        'name': f'User{user_id}',
-        'photo': f"img/user{user_id}.jpg",
-        'login': f'login user{user_id}',
-        'email': f'user{user_id}@gmail.com',
-        'password': '123456'
-    }
-    for user_id in range(3)
-]
 
-QUESTIONS = [
-    {
-        'id': question_id,
-        'title': f'Question {question_id}',
-        'text': f'Text of question #{question_id}',
-        'answers_number': question_id+question_id+2,
-        'tags': ['tag1' for i in range(question_id)],
-        'rating': question_id+2,
-        'user': USERS[question_id % 3]
-    }
-   for question_id in range(21)
-   
-]
+########### Managers ###########
 
-ANSWERS = [
-    {
-        'id': answer_id,
-        'title': f'Answer {answer_id}',
-        'text': f'Text of answer #{answer_id}',
-        'rating': answer_id+2,
-        'user': USERS[answer_id % 2 ]
-    }
-   for answer_id in range(10)
-   
-]
+class TagManager(models.Manager):
+    def hot(self):
+        return Tag.objects.annotate(number_of_questions=Count('question')).order_by('-number_of_questions')[:7]
+        
+class QuestionManager(models.Manager):
+    def new(self):
+        return self.all().order_by('-date').annotate(number_of_answers=Count('answer'))
+
+    def hot(self):
+        return self.all().order_by('-rating').annotate(number_of_answers=Count('answer'))
+
+    def tag(self, tag):
+        return self.filter(tags__name__exact=tag).annotate(number_of_answers=Count('answer')).order_by('-date')
+
+    def current_question(self, id):
+        return self.filter(id=id).first()
+
+class AnswerManager(models.Manager):
+    def by_question(self, q_id):
+        return self.filter(question_id=q_id).order_by('-rating')
+
+########### Models ###########
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.ImageField(blank=True, default = "../static/img/no-user.jpg", upload_to='upload/')
+    def __str__(self):
+        return self.user.username
+
+class Tag(models.Model):
+    name = models.CharField(max_length = 60)
+    def __str__(self):
+        return self.name
+    objects = TagManager()
+
+class Question(models.Model):
+    title = models.TextField(max_length = 200)
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    text = models.TextField()
+    date = models.DateField()
+    tags = models.ManyToManyField(Tag)
+    rating = models.IntegerField(default=0)
+    def __str__(self):
+        return self.title
+    def calc_rating(self, mark):
+        self.rating = self.rating + mark
+        self.save()
+    objects = QuestionManager()
+
+class QuestionMark(models.Model):
+    author = models.ForeignKey(Profile, on_delete = models.CASCADE)
+    question = models.ForeignKey(Question, on_delete = models.CASCADE)
+    LIKE = 1
+    DISLIKE = -1
+    like_choice = [(LIKE, "like"), (DISLIKE, "dislike")]
+    mark = models.SmallIntegerField(choices=like_choice)
+ 
+class Answer(models.Model):
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete = models.CASCADE)    
+    text = models.TextField()
+    date = models.DateField()
+    rating = models.IntegerField(default=0)
+    correct = models.BooleanField(default = False)
+    objects = AnswerManager()
+    def __str__(self):
+        return self.question.title
+    def calc_rating(self, mark):
+        self.rating = self.rating + mark
+        self.save()
+
+class AnswerMark(models.Model):
+    author = models.ForeignKey(Profile, on_delete = models.CASCADE)
+    answer = models.ForeignKey(Answer, on_delete = models.CASCADE)
+    LIKE = 1
+    DISLIKE = -1
+    like_choice = [(LIKE, "like"), (DISLIKE, "dislike")]
+    mark = models.SmallIntegerField(choices=like_choice)
+
+
 
 

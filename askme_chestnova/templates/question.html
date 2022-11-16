@@ -6,16 +6,22 @@
 
 <div class="post-item border-bottom" style="border: none; padding: 10px;">
     <div class="row ">
-        <div class="col-2">
-            <div class="big-avatar">
-                <img src="{% static question.user.photo %}" alt="" />
+        <div class="col-md-2">
+            <div class="d-flex justify-content-center">
+                <div class="big-avatar .text-center">
+                    <img classs= ".text-center" src="{{ item.author.avatar.url }}" alt="" />
+                </div>
             </div>
-            <div class="user-name">{{question.user.name}}</div>
+            <div class="d-flex justify-content-center">
+                <div class="user-name">{{item.author}}</div>
+            </div>
+            
             {%include 'inc/rating.html'%}
+        
         </div>
-        <div class="col-10" style="position: relative;">
+        <div class="col-md-10" style="position: relative;">
 
-            <h1 class="question-title">{{question.title}}</h1>
+            <h1 class="question-title">{{item.title}}</h1>
             <div class="full-text">
                 {{question.text}} Delectus quos modi repellendus magni autem ut error maxime eos labore eveniet
                 ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
