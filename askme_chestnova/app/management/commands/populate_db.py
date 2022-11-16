@@ -29,12 +29,6 @@ class Provider(faker.providers.BaseProvider):
 
 fake = Faker(locale="ru_RU")
 fake.add_provider(Provider)
-# locale_list = OrderedDict([
-#     ('en-US', 5),
-#     ('ru-RU', 5),
-#     ('ja_JP', 1),
-# ])
-# fake1 = Faker(locale_list)
 Faker.seed(0)
 
 
@@ -57,9 +51,6 @@ class Command(BaseCommand):
         num_a = options["answers"]
         num_am = options["answer_marks"]
         num_all = options["all"]
-
-        # User.objects.all().delete()
-        # Profile.objects.all().delete()
 
         if num_all:
             self.fill_with_tags(num_all)
@@ -95,36 +86,36 @@ class Command(BaseCommand):
 
     def fill_with_users(self, num):
         for i in range(num):
-            u=User.objects.create(username = (fake.user_name() + str(random.randint(-9, 9)) +fake.name()+random.choice(symbols)+ str(random.randint(-9, 9)) + random.choice(symbols) + random.choice(symbols) +
-                  fake.first_name() + random.choice(symbols) + str(random.randint(-9, 9))), password = fake.password(), email = fake.email())
+            u = User.objects.create(username=(fake.user_name() + str(random.randint(-9, 9)) + fake.name()+random.choice(symbols) + str(random.randint(-9, 9)) + random.choice(symbols) + random.choice(symbols) +
+                                              fake.first_name() + random.choice(symbols) + str(random.randint(-9, 9))), password=fake.password(), email=fake.email())
             Profile.objects.create(user=u)
 
-        profiles=Profile.objects.all()
+        profiles = Profile.objects.all()
         for p in profiles:
-            pic=fake.profile_avatar()
-            img=File(open("./static/img/" + pic, "rb"))
-            p.avatar=img
-            p.save(update_fields = ["avatar"])
+            pic = fake.profile_avatar()
+            img = File(open("./static/img/" + pic, "rb"))
+            p.avatar = img
+            p.save(update_fields=["avatar"])
 
     def fill_with_questions(self, num):
-        authors=list(Profile.objects.values_list("id", flat=True))
-        tags=list(Tag.objects.values_list("id", flat=True))
+        authors = list(Profile.objects.values_list("id", flat=True))
+        tags = list(Tag.objects.values_list("id", flat=True))
         for i in range(min(num, 10000)):
-            q=Question.objects.create(title = fake.unique.sentence()[:60][:-1] + '?',
-                                        author_id = random.choice(authors),
-                                        text = fake.unique.paragraph(
-                                            nb_sentences=10),
-                                        date = fake.unique.date_time_between(
-                                            "-100d", "now"),
-                                        rating = 0)
+            q = Question.objects.create(title=fake.unique.sentence()[:60][:-1] + '?',
+                                        author_id=random.choice(authors),
+                                        text=fake.unique.paragraph(
+                nb_sentences=10),
+                date=fake.unique.date_time_between(
+                "-100d", "now"),
+                rating=0)
             for _ in range(1, random.randint(2, 5)):
                 q.tags.add(random.choice(tags))
 
     def fill_with_answers(self, num):
-        authors=list(Profile.objects.values_list("id", flat=True))
-        questions=list(Question.objects.values_list("id", flat=True))
+        authors = list(Profile.objects.values_list("id", flat=True))
+        questions = list(Question.objects.values_list("id", flat=True))
         for i in range(min(num, 10000)):
-            a=Answer.objects.create(author_id = random.choice(authors),
+            a = Answer.objects.create(author_id=random.choice(authors),
                                       question_id=random.choice(questions),
                                       text=fake.unique.paragraph(
                 nb_sentences=8),
