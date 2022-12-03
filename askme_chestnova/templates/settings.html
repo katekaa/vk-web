@@ -2,43 +2,54 @@
 
 {% load static %}
 
+{% load bootstrap5 %}
+
 {% block content %}
 <div class="title">
-    <h1>Settings: {{user.name}}</h1>
+    <h1>Settings: {{request.user.username}}</h1>
 </div>
-<form>
+<form enctype="multipart/form-data" action="/settings/" method="post">
+    {% csrf_token %}
+    {% if form.errors %}
     <div class="row mb-3">
-        <label for="inputLogin" class="col-sm-1 col-form-label">Login</label>
+        {% for field in form %}
+        {% for error in field.errors %}
+        <div class="error-text">
+            {{error}}
+        </div>
+        {% endfor %}
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="row mb-3">
+        <label for="{{ user_form.username.id_for_label }}" class="col-sm-1 col-form-label">Username</label>
         <div class="col-sm-11">
-            <input type="text" class="form-control" value={{user.login}} id="inputLogin">
+            {{ user_form.username }}
         </div>
     </div>
     <div class="row mb-3">
-        <label for="inputEmail" class="col-sm-1 col-form-label">Email</label>
+        <label for="{{ user_form.email.id_for_label }}" class="col-sm-1 col-form-label">Email</label>
         <div class="col-sm-11">
-            <input type="email" class="form-control" value={{user.email}} id="inputEmail">
+            {{ user_form.email }}
         </div>
     </div>
+    
     <div class="row mb-3">
-        <label for="inputNickName" class="col-sm-1 col-form-label">NickName</label>
+        <label for="{{ profile_form.avatar.id_for_label }}" class="col-sm-1 col-form-label">Upload avatar</label>
         <div class="col-sm-11">
-            <input type="text" class="form-control" value ={{user.name}} id="inputNickName">
+            {{ profile_form.avatar }}
         </div>
+        
     </div>
-    <div class="row mb-3">
-        <label for="inputAvatar" class="col-sm-1 col-form-label">Upload avatar</label>
-        <div class="col-sm-11">
-            <div class="avatar-setting" id="inputAvatar">
-                <img src="{% static user.photo %}" alt="" />
-            </div>
-            <input class="form-control" type="file" id="formFile">
-        </div>
-    </div>
+    
     <div class="row mb-3">
         <div class="col-sm-1 col-form-label"></div>
         <div class="col-sm-11">
             <button type="submit" class="btn btn-primary">Save</button>
         </div>
+    </div>
+    <div class="row mb-3">
+        <a href="{% url 'password_change' %}" style="text-decoration: none;">Change Password</a>
     </div>
 </form>
 {% endblock %}

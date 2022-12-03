@@ -2,34 +2,40 @@
 
 {% load static %}
 
+{% load bootstrap5 %}
+
 {% block content %}
 
 <div class="title">
     <h1>Log in</h1>
 </div>
-<form>
+<form action="/login/" method="post" >
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
     <div class="row mb-3">
+        {% for error in form.non_field_errors %}
         <div class="error-text">
-            Sorry, wrong login or email
+            {{error}}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row mb-3">
+        <label for="{{ form.username.id_for_label }}" class="col-sm-1 col-form-label">Username</label>
+        <div class="col-sm-4">
+            {{ form.username }}
         </div>
     </div>
     <div class="row mb-3">
-        <label for="inputLogin" class="col-sm-1 col-form-label">Login</label>
+        <label for="{{ form.password.id_for_label }}" class="col-sm-1 col-form-label">Password</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" value="user_4" id="inputLogin">
-        </div>
-    </div>
-    <div class="row mb-3">
-        <label for="inputPassword" class="col-sm-1 col-form-label">Password</label>
-        <div class="col-sm-4">
-            <input type="password" class="form-control" id="inputPassword">
+            {{form.password}}
         </div>
 
     </div>
     <div class="row mb-3">
         <div class="col-sm-1 col-form-label"></div>
         <div class="col-sm-4">
-            <button type="submit" class="btn btn-primary disabled">Log in</button>
+            <button type="submit" class="btn btn-primary">Log in</button>
         </div>
     </div>
 

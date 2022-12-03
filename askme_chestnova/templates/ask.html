@@ -6,35 +6,42 @@
 <div class="title">
     <h1>New Question</h1>
 </div>
-<form>
+<form action="/ask/" method="post">
+    {% csrf_token %}
+    {% if form.errors %}
     <div class="row mb-3">
+        {% for field in form %}
+        {% for error in field.errors %}
         <div class="error-text">
-            Please fill in the field
+            {{error}}
+        </div>
+        {% endfor %}
+        {% endfor %}
+    </div> 
+    {% endif %} 
+    <div class="row mb-3">
+        <label for="{{ q_form.title.id_for_label }}" class="col-sm-1 col-form-label">Title</label>
+        <div class="col-sm-11">
+            {{ q_form.title }}
         </div>
     </div>
     <div class="row mb-3">
-        <label for="inputTitle" class="col-sm-1 col-form-label">Title</label>
+        <label for="{{ q_form.text.id_for_label }}" class="col-sm-1 col-form-label">Text</label>
         <div class="col-sm-11">
-            <input type="text" class="form-control" value="Am I a robot?" id="inputTitle">
+            {{ q_form.text }}
         </div>
     </div>
     <div class="row mb-3">
-        <label for="inputQuestion" class="col-sm-1 col-form-label">Text</label>
+        <label for="{{ q_form.tags.id_for_label }}" class="col-sm-1 col-form-label">Tags</label>
         <div class="col-sm-11">
-            <textarea class="form-control" id="inputQuestion"> </textarea>
-        </div>
-    </div>
-    <div class="row mb-3">
-        <label for="inputTags" class="col-sm-1 col-form-label">Tags</label>
-        <div class="col-sm-11">
-            <input type="text" class="form-control" id="inputTags" value="captcha">
+            {{ q_form.tags }}
         </div>
 
     </div>
     <div class="row mb-3">
         <div class="col-sm-1 col-form-label"></div>
         <div class="col-sm-11">
-            <button type="submit" class="btn btn-primary disabled">Ask</button>
+            <button type="submit" class="btn btn-primary">Ask</button>
         </div>
     </div>
 </form>

@@ -8,6 +8,8 @@
 
 {% block content %}
 
+{% if request.user.is_authenticated %}
 {% include "../inc/under_answer.html"%}
+{% endif %}
 
 {% endblock %}

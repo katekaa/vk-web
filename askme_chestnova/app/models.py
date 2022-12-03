@@ -45,7 +45,7 @@ class Question(models.Model):
     title = models.TextField(max_length = 200)
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     text = models.TextField()
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
     tags = models.ManyToManyField(Tag)
     rating = models.IntegerField(default=0)
     def __str__(self):
@@ -67,7 +67,7 @@ class Answer(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete = models.CASCADE)    
     text = models.TextField()
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
     rating = models.IntegerField(default=0)
     correct = models.BooleanField(default = False)
     objects = AnswerManager()

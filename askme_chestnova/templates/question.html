@@ -9,33 +9,21 @@
         <div class="col-md-2">
             <div class="d-flex justify-content-center">
                 <div class="big-avatar .text-center">
-                    <img classs= ".text-center" src="{{ item.author.avatar.url }}" alt="" />
+                    <img classs=".text-center" src="{{ item.author.avatar.url }}" alt="" />
                 </div>
             </div>
             <div class="d-flex justify-content-center">
                 <div class="user-name">{{item.author}}</div>
             </div>
-            
+
             {%include 'inc/rating.html'%}
-        
+
         </div>
         <div class="col-md-10" style="position: relative;">
 
             <h1 class="question-title">{{item.title}}</h1>
             <div class="full-text">
-                {{question.text}} Delectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibusDelectus quos modi repellendus magni autem ut error maxime eos labore eveniet
-                ratione temporibus
+                {{item.text}}
             </div>
             <div class="under-question">
                 {% include 'inc/tags.html' %}
@@ -44,9 +32,13 @@
     </div>
 </div>
 
-<textarea class="form-control" id="inputAnswer" style="margin-bottom: 10px;"
-    placeholder="Type your answer here"></textarea>
+{% if request.user.is_authenticated %}
+<form method = "post" novalidate>
+    {% csrf_token %}
+    {{form.text}}
 <button type="submit" style="margin-bottom: 20px;" class="btn btn-primary">Answer</button>
+</form>
+{% endif %}
 
 {% for item in page_obj %}
 {%include 'inc/answer_item.html' %}
